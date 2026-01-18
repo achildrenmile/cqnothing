@@ -1,0 +1,159 @@
+{
+  "version": "1.0",
+  "defaultLanguage": "de",
+  "supportedLanguages": ["de", "en"],
+  "strings": {
+    "app.title": {
+      "de": "CQ… Nothing.",
+      "en": "CQ… Nothing."
+    },
+    "app.subtitle": {
+      "de": "Kurzwellenfunk verstehen durch Fehleranalyse",
+      "en": "Understanding HF Radio by Debugging QSOs"
+    },
+    "app.tagline": {
+      "de": "Warum antwortet niemand? Finde es heraus!",
+      "en": "Why is no one answering? Find out!"
+    },
+    "nav.scenario": {
+      "de": "Szenario",
+      "en": "Scenario"
+    },
+    "nav.of": {
+      "de": "von",
+      "en": "of"
+    },
+    "btn.check": {
+      "de": "Überprüfen",
+      "en": "Check"
+    },
+    "btn.next": {
+      "de": "Nächstes Szenario",
+      "en": "Next Scenario"
+    },
+    "btn.previous": {
+      "de": "Vorheriges Szenario",
+      "en": "Previous Scenario"
+    },
+    "btn.reset": {
+      "de": "Auswahl zurücksetzen",
+      "en": "Reset Selection"
+    },
+    "btn.tryAgain": {
+      "de": "Nochmal versuchen",
+      "en": "Try Again"
+    },
+    "scenario.situation": {
+      "de": "Situation",
+      "en": "Situation"
+    },
+    "scenario.band": {
+      "de": "Band",
+      "en": "Band"
+    },
+    "scenario.time": {
+      "de": "Uhrzeit",
+      "en": "Time"
+    },
+    "scenario.distance": {
+      "de": "Entfernung zum Ziel",
+      "en": "Distance to Target"
+    },
+    "scenario.antenna": {
+      "de": "Antenne",
+      "en": "Antenna"
+    },
+    "scenario.symptoms": {
+      "de": "Was du beobachtest",
+      "en": "What You Observe"
+    },
+    "scenario.power": {
+      "de": "Sendeleistung",
+      "en": "Transmit Power"
+    },
+    "scenario.season": {
+      "de": "Jahreszeit",
+      "en": "Season"
+    },
+    "question.main": {
+      "de": "Was könnte das Problem sein?",
+      "en": "What could be the problem?"
+    },
+    "question.hint": {
+      "de": "Wähle eine oder mehrere mögliche Erklärungen aus.",
+      "en": "Select one or more possible explanations."
+    },
+    "question.noneSelected": {
+      "de": "Bitte wähle mindestens eine Erklärung aus.",
+      "en": "Please select at least one explanation."
+    },
+    "feedback.title": {
+      "de": "Auswertung",
+      "en": "Analysis"
+    },
+    "feedback.plausible": {
+      "de": "Gute Überlegung!",
+      "en": "Good thinking!"
+    },
+    "feedback.unlikely": {
+      "de": "Eher unwahrscheinlich",
+      "en": "Rather unlikely"
+    },
+    "feedback.missed": {
+      "de": "Das hättest du auch bedenken können",
+      "en": "You could have also considered"
+    },
+    "feedback.perfect": {
+      "de": "Sehr gut erkannt!",
+      "en": "Well identified!"
+    },
+    "feedback.partly": {
+      "de": "Teilweise richtig gedacht.",
+      "en": "Partially on the right track."
+    },
+    "feedback.rethink": {
+      "de": "Lass uns das nochmal durchdenken.",
+      "en": "Let's think this through again."
+    },
+    "footer.tagline": {
+      "de": "Ein Lernwerkzeug für Amateurfunk-Einsteiger",
+      "en": "A learning tool for amateur radio beginners"
+    },
+    "a11y.languageToggle": {
+      "de": "Sprache wechseln zu English",
+      "en": "Switch language to German"
+    },
+    "a11y.currentLanguage": {
+      "de": "Aktuelle Sprache: Deutsch",
+      "en": "Current language: English"
+    },
+    "a11y.causeOption": {
+      "de": "Mögliche Ursache",
+      "en": "Possible cause"
+    },
+    "difficulty.beginner": {
+      "de": "Einsteiger",
+      "en": "Beginner"
+    },
+    "difficulty.intermediate": {
+      "de": "Fortgeschritten",
+      "en": "Intermediate"
+    },
+    "difficulty.advanced": {
+      "de": "Experte",
+      "en": "Advanced"
+    },
+    "encourage.learning": {
+      "de": "Beim Amateurfunk lernt man nie aus – jede Analyse macht dich besser!",
+      "en": "In amateur radio, you never stop learning – every analysis makes you better!"
+    },
+    "encourage.normal": {
+      "de": "Auch erfahrene Funkamateure haben manchmal \"CQ… Nothing\" – das ist völlig normal.",
+      "en": "Even experienced hams sometimes have \"CQ… Nothing\" – that's completely normal."
+    },
+    "encourage.detective": {
+      "de": "Du denkst wie ein echter Funk-Detektiv!",
+      "en": "You're thinking like a real radio detective!"
+    }
+  }
+}

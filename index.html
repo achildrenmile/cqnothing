@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CQ… Nothing. – Kurzwellenfunk verstehen durch Fehleranalyse / Understanding HF Radio by Debugging QSOs">
+    <meta name="theme-color" content="#1a365d">
+    <title>CQ… Nothing. – HF Radio Troubleshooting</title>
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header with title and language toggle -->
+    <header class="app-header">
+        <div class="header-content">
+            <div class="title-block">
+                <h1 class="app-title">CQ… Nothing.</h1>
+                <p class="app-subtitle">
+                    <span lang="de">Kurzwellenfunk verstehen durch Fehleranalyse</span>
+                </p>
+            </div>
+            <button id="btn-language"
+                    class="language-toggle"
+                    type="button"
+                    aria-label="Sprache wechseln / Change language">
+                <span id="language-label">DE</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main content area -->
+    <main id="main-content" class="main-content">
+        <!-- Scenario navigation -->
+        <nav class="scenario-nav" aria-label="Scenario navigation">
+            <button id="btn-previous" class="nav-btn" type="button" disabled>
+                ← Vorheriges Szenario
+            </button>
+            <span id="scenario-counter" class="scenario-counter">Szenario 1 von 5</span>
+            <button id="btn-next" class="nav-btn" type="button">
+                Nächstes Szenario →
+            </button>
+        </nav>
+
+        <!-- Scenario card -->
+        <article class="scenario-card" id="scenario-container">
+            <header class="scenario-header">
+                <h2 id="scenario-title" class="scenario-title">Loading...</h2>
+            </header>
+
+            <section class="scenario-situation" aria-label="Situation">
+                <h3 class="sr-only">Situation</h3>
+                <p id="scenario-situation" class="situation-text"></p>
+            </section>
+
+            <section class="scenario-details" aria-label="Details">
+                <h3 class="sr-only">Scenario Details</h3>
+
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <span id="label-band" class="detail-label">Band</span>
+                        <span id="scenario-band" class="detail-value"></span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span id="label-time" class="detail-label">Uhrzeit</span>
+                        <span id="scenario-time" class="detail-value"></span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span id="label-distance" class="detail-label">Entfernung zum Ziel</span>
+                        <span id="scenario-distance" class="detail-value"></span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span id="label-antenna" class="detail-label">Antenne</span>
+                        <span id="scenario-antenna" class="detail-value"></span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span id="label-power" class="detail-label">Sendeleistung</span>
+                        <span id="scenario-power" class="detail-value"></span>
+                    </div>
+                </div>
+
+                <div class="symptoms-section">
+                    <span id="label-symptoms" class="detail-label">Was du beobachtest</span>
+                    <ul id="scenario-symptoms" class="symptoms-list"></ul>
+                </div>
+            </section>
+        </article>
+
+        <!-- Question and cause selection -->
+        <section class="selection-section" aria-labelledby="question-main">
+            <h2 id="question-main" class="question-title">Was könnte das Problem sein?</h2>
+            <p id="question-hint" class="question-hint">
+                Wähle eine oder mehrere mögliche Erklärungen aus.
+            </p>
+
+            <!-- Error message area -->
+            <div id="error-message" class="error-message" role="alert" aria-live="polite"></div>
+
+            <!-- Cause checkboxes -->
+            <div id="causes-container" class="causes-container" role="group" aria-label="Possible causes">
+                <!-- Populated by JavaScript -->
+            </div>
+
+            <!-- Action buttons -->
+            <div class="action-buttons">
+                <button id="btn-check" class="btn btn-primary" type="button">
+                    Überprüfen
+                </button>
+                <button id="btn-reset" class="btn btn-secondary" type="button">
+                    Auswahl zurücksetzen
+                </button>
+            </div>
+        </section>
+
+        <!-- Feedback section -->
+        <section id="feedback-container"
+                 class="feedback-container"
+                 aria-hidden="true"
+                 aria-labelledby="feedback-title">
+
+            <h2 id="feedback-title" class="feedback-title">Auswertung</h2>
+
+            <!-- Plausible causes -->
+            <div id="plausible-section" class="feedback-section plausible-section hidden">
+                <h4>Gute Überlegung!</h4>
+                <div class="feedback-list"></div>
+            </div>
+
+            <!-- Unlikely causes -->
+            <div id="unlikely-section" class="feedback-section unlikely-section hidden">
+                <h4>Eher unwahrscheinlich</h4>
+                <div class="feedback-list"></div>
+            </div>
+
+            <!-- Missed causes -->
+            <div id="missed-section" class="feedback-section missed-section hidden">
+                <h4>Das hättest du auch bedenken können</h4>
+                <div class="feedback-list"></div>
+            </div>
+
+            <!-- Aha moment section -->
+            <div id="aha-section" class="aha-section hidden">
+                <div class="aha-icon">💡</div>
+                <p class="aha-text"></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p>
+            CQ… Nothing. –
+            <span id="footer-tagline">Ein Lernwerkzeug für Amateurfunk-Einsteiger</span>
+        </p>
+    </footer>
+
+    <!-- Bundled JavaScript entry point -->
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

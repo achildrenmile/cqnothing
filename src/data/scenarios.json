@@ -1,0 +1,689 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "description": "CQ… Nothing. Scenario Database",
+    "lastUpdated": "2025-01-18",
+    "author": "Amateur Radio Educational Project"
+  },
+  "plausibilityLevels": {
+    "very_likely": { "de": "Sehr wahrscheinlich", "en": "Very likely" },
+    "likely": { "de": "Wahrscheinlich", "en": "Likely" },
+    "possible": { "de": "Möglich", "en": "Possible" },
+    "unlikely": { "de": "Unwahrscheinlich", "en": "Unlikely" }
+  },
+  "enums": {
+    "bands": {
+      "160m": { "de": "160m Band (1.8 MHz)", "en": "160m Band (1.8 MHz)" },
+      "80m": { "de": "80m Band (3.5 MHz)", "en": "80m Band (3.5 MHz)" },
+      "60m": { "de": "60m Band (5.3 MHz)", "en": "60m Band (5.3 MHz)" },
+      "40m": { "de": "40m Band (7 MHz)", "en": "40m Band (7 MHz)" },
+      "30m": { "de": "30m Band (10 MHz)", "en": "30m Band (10 MHz)" },
+      "20m": { "de": "20m Band (14 MHz)", "en": "20m Band (14 MHz)" },
+      "17m": { "de": "17m Band (18 MHz)", "en": "17m Band (18 MHz)" },
+      "15m": { "de": "15m Band (21 MHz)", "en": "15m Band (21 MHz)" },
+      "12m": { "de": "12m Band (24 MHz)", "en": "12m Band (24 MHz)" },
+      "10m": { "de": "10m Band (28 MHz)", "en": "10m Band (28 MHz)" },
+      "6m": { "de": "6m Band (50 MHz)", "en": "6m Band (50 MHz)" }
+    },
+    "times": {
+      "early_morning": { "de": "Früh morgens (06:00)", "en": "Early morning (6:00 AM)" },
+      "morning": { "de": "Morgens (08:00)", "en": "Morning (8:00 AM)" },
+      "midday": { "de": "Mittags (12:00)", "en": "Midday (12:00 PM)" },
+      "afternoon": { "de": "Nachmittags (15:00)", "en": "Afternoon (3:00 PM)" },
+      "evening": { "de": "Abends (20:00)", "en": "Evening (8:00 PM)" },
+      "night": { "de": "Nachts (23:00)", "en": "Night (11:00 PM)" },
+      "late_night": { "de": "Spät nachts (02:00)", "en": "Late night (2:00 AM)" },
+      "sunrise": { "de": "Sonnenaufgang", "en": "Sunrise" },
+      "sunset": { "de": "Sonnenuntergang", "en": "Sunset" }
+    },
+    "distances": {
+      "very_close": { "de": "Sehr nah (ca. 50 km)", "en": "Very close (~50 km)" },
+      "close": { "de": "Nah (ca. 150 km)", "en": "Close (~150 km)" },
+      "medium": { "de": "Mittel (ca. 500 km)", "en": "Medium (~500 km)" },
+      "far": { "de": "Weit (ca. 1500 km)", "en": "Far (~1500 km)" },
+      "very_far": { "de": "Sehr weit (ca. 3000 km)", "en": "Very far (~3000 km)" },
+      "dx": { "de": "DX (über 5000 km)", "en": "DX (over 5000 km)" },
+      "antipode": { "de": "Antipode (ca. 18000 km)", "en": "Antipode (~18000 km)" }
+    },
+    "antennas": {
+      "dipole_low": { "de": "Dipol (horizontal, 5m hoch)", "en": "Dipole (horizontal, 5m high)" },
+      "dipole_high": { "de": "Dipol (horizontal, 15m hoch)", "en": "Dipole (horizontal, 15m high)" },
+      "vertical": { "de": "Vertikalantenne (Groundplane)", "en": "Vertical antenna (ground plane)" },
+      "vertical_elevated": { "de": "Elevated Vertical mit Radials", "en": "Elevated vertical with radials" },
+      "longwire": { "de": "Langdraht (20m, niedrig)", "en": "Long wire (20m, low)" },
+      "end_fed": { "de": "End-Fed Halbwelle", "en": "End-fed half-wave" },
+      "beam_yagi": { "de": "Yagi-Richtantenne (3 Elemente)", "en": "Yagi beam (3 elements)" },
+      "mobile": { "de": "Mobilantenne (kurz, am Auto)", "en": "Mobile antenna (short, on car)" },
+      "magnetic_loop": { "de": "Magnetic Loop (indoor)", "en": "Magnetic Loop (indoor)" },
+      "g5rv": { "de": "G5RV Multiband-Dipol", "en": "G5RV multiband dipole" },
+      "inverted_v": { "de": "Inverted-V Dipol", "en": "Inverted-V dipole" }
+    },
+    "symptoms": {
+      "silence": { "de": "Komplette Stille – niemand antwortet", "en": "Complete silence – no one answers" },
+      "noise_floor": { "de": "Starkes Rauschen auf der Frequenz", "en": "Strong noise on the frequency" },
+      "qrm": { "de": "Andere Stationen hörbar, aber nicht das Ziel", "en": "Other stations audible, but not the target" },
+      "fading": { "de": "Signal kommt und geht (Fading)", "en": "Signal comes and goes (fading)" },
+      "weak": { "de": "Signal ist sehr schwach", "en": "Signal is very weak" },
+      "distorted": { "de": "Signal ist verzerrt oder unverständlich", "en": "Signal is distorted or unintelligible" },
+      "crashes": { "de": "Starke Störgeräusche (Krachen, Prasseln)", "en": "Strong interference (crashes, crackles)" },
+      "echo": { "de": "Echos auf dem Signal", "en": "Echoes on the signal" },
+      "flutter": { "de": "Flatterndes, zerrissenes Signal", "en": "Fluttering, torn signal" },
+      "no_reply": { "de": "DX-Station antwortet anderen, aber nicht dir", "en": "DX station answers others, but not you" },
+      "high_swr": { "de": "Transceiver reduziert Leistung (SWR-Schutz)", "en": "Transceiver reduces power (SWR protection)" }
+    },
+    "seasons": {
+      "spring": { "de": "Frühling", "en": "Spring" },
+      "summer": { "de": "Sommer", "en": "Summer" },
+      "autumn": { "de": "Herbst", "en": "Autumn" },
+      "winter": { "de": "Winter", "en": "Winter" }
+    }
+  },
+  "scenarios": [
+    {
+      "id": "skip_zone_40m_daytime",
+      "difficulty": "beginner",
+      "title": {
+        "de": "Der verschwundene Nachbar",
+        "en": "The Vanishing Neighbor"
+      },
+      "situation": {
+        "de": "Du rufst CQ auf 40m am Nachmittag. Stationen aus ganz Europa antworten, aber dein Funkfreund 150 km entfernt hört dich überhaupt nicht – obwohl er auch auf dem Band ist und andere Stationen arbeitet.",
+        "en": "You're calling CQ on 40m in the afternoon. Stations from all over Europe answer, but your radio friend 150 km away doesn't hear you at all – even though he's on the band working other stations."
+      },
+      "band": "40m",
+      "time": "afternoon",
+      "distance": "close",
+      "antenna": "dipole_high",
+      "power": { "de": "100 Watt", "en": "100 Watts" },
+      "symptoms": ["silence"],
+      "season": "summer",
+      "causeMappings": {
+        "skip_zone": "very_likely",
+        "antenna_mismatch": "possible",
+        "wrong_band_time": "possible",
+        "absorption_d_layer": "unlikely",
+        "no_propagation": "unlikely",
+        "multipath_fading": "unlikely",
+        "low_power": "unlikely",
+        "antenna_direction": "unlikely",
+        "qrn_atmospheric": "unlikely",
+        "qrm_interference": "unlikely",
+        "local_noise": "unlikely",
+        "no_activity": "unlikely"
+      },
+      "ahaHint": {
+        "de": "Bei 40m tagsüber liegt die Skip Zone oft zwischen 100-400 km. Dein Nachbar sitzt genau drin! Für solche Entfernungen wäre 80m besser – oder warten bis abends, wenn die Skip Zone sich ändert.",
+        "en": "On 40m during daytime, the skip zone is often between 100-400 km. Your neighbor is right in it! For such distances, 80m would be better – or wait until evening when the skip zone changes."
+      }
+    },
+    {
+      "id": "d_layer_80m_midday",
+      "difficulty": "beginner",
+      "title": {
+        "de": "Das stumme 80m-Band",
+        "en": "The Silent 80m Band"
+      },
+      "situation": {
+        "de": "Du versuchst mittags auf 80m eine Station in 600 km Entfernung zu erreichen. Gestern Abend ging es problemlos mit starkem Signal. Heute hörst du nur Rauschen, und auch deine CQ-Rufe bleiben unbeantwortet.",
+        "en": "You're trying to reach a station 600 km away on 80m at midday. Yesterday evening it worked fine with a strong signal. Today you only hear noise, and your CQ calls remain unanswered."
+      },
+      "band": "80m",
+      "time": "midday",
+      "distance": "medium",
+      "antenna": "dipole_low",
+      "power": { "de": "100 Watt", "en": "100 Watts" },
+      "symptoms": ["noise_floor", "silence"],
+      "season": "summer",
+      "causeMappings": {
+        "absorption_d_layer": "very_likely",
+        "wrong_band_time": "very_likely",
+        "skip_zone": "possible",
+        "low_power": "possible",
+        "qrn_atmospheric": "possible",
+        "local_noise": "possible",
+        "no_propagation": "unlikely",
+        "multipath_fading": "unlikely",
+        "antenna_mismatch": "unlikely",
+        "antenna_direction": "unlikely",
+        "qrm_interference": "unlikely",
+        "no_activity": "unlikely"
+      },
+      "ahaHint": {
+        "de": "Die D-Schicht ist der \"Kurzwellen-Killer\" am Tag! Sie absorbiert besonders die niedrigen Frequenzen wie 80m und 160m. Nach Sonnenuntergang verschwindet sie, und plötzlich gehen die Bänder auf.",
+        "en": "The D-layer is the \"shortwave killer\" during daytime! It especially absorbs low frequencies like 80m and 160m. After sunset it disappears, and suddenly the bands open."
+      }
+    },
+    {
+      "id": "10m_closed_night",
+      "difficulty": "beginner",
+      "title": {
+        "de": "Stille auf 10 Meter",
+        "en": "Silence on 10 Meters"
+      },
+      "situation": {
+        "de": "Du hast gehört, dass 10m fantastische DX-Möglichkeiten bietet. Abends um 22 Uhr rufst du CQ in Richtung Nordamerika. Das Band ist absolut still – kein Rauschen, keine Signale, keine Antworten. Totenstille.",
+        "en": "You heard that 10m offers fantastic DX opportunities. At 10 PM you call CQ toward North America. The band is absolutely silent – no noise, no signals, no answers. Dead silence."
+      },
+      "band": "10m",
+      "time": "night",
+      "distance": "dx",
+      "antenna": "vertical",
+      "power": { "de": "50 Watt", "en": "50 Watts" },
+      "symptoms": ["silence"],
+      "season": "winter",
+      "causeMappings": {
+        "no_propagation": "very_likely",
+        "wrong_band_time": "very_likely",
+        "antenna_mismatch": "possible",
+        "no_activity": "possible",
+        "skip_zone": "unlikely",
+        "absorption_d_layer": "unlikely",
+        "multipath_fading": "unlikely",
+        "low_power": "unlikely",
+        "antenna_direction": "unlikely",
+        "qrn_atmospheric": "unlikely",
+        "qrm_interference": "unlikely",
+        "local_noise": "unlikely"
+      },
+      "ahaHint": {
+        "de": "10 Meter ist das \"Sonnenband\" – es braucht starke Ionisation der F-Schicht, die nachts nachlässt. Die MUF fällt unter 28 MHz, und Signale gehen ins All durch. Im Sonnenfleckenmaximum kann 10m auch nachts offen sein, aber normalerweise ist es ein Tagesband.",
+        "en": "10 meters is the \"solar band\" – it needs strong F-layer ionization, which weakens at night. The MUF drops below 28 MHz, and signals pass through into space. During solar maximum, 10m can be open at night, but normally it's a daytime band."
+      }
+    },
+    {
+      "id": "summer_qrn_80m",
+      "difficulty": "beginner",
+      "title": {
+        "de": "Sommergewitter-Chaos",
+        "en": "Summer Thunderstorm Chaos"
+      },
+      "situation": {
+        "de": "Es ist ein warmer Sommerabend, und du versuchst auf 80m einen Freund in 300 km Entfernung zu erreichen. Du hörst sein Signal schwach, aber ständiges Krachen und Prasseln macht die Verständigung fast unmöglich. Bei dir ist es sonnig und trocken.",
+        "en": "It's a warm summer evening, and you're trying to reach a friend 300 km away on 80m. You hear his signal weakly, but constant crashes and crackles make communication almost impossible. Where you are, it's sunny and dry."
+      },
+      "band": "80m",
+      "time": "evening",
+      "distance": "medium",
+      "antenna": "longwire",
+      "power": { "de": "100 Watt", "en": "100 Watts" },
+      "symptoms": ["weak", "crashes"],
+      "season": "summer",
+      "causeMappings": {
+        "qrn_atmospheric": "very_likely",
+        "multipath_fading": "possible",
+        "antenna_mismatch": "possible",
+        "low_power": "possible",
+        "local_noise": "possible",
+        "skip_zone": "unlikely",
+        "absorption_d_layer": "unlikely",
+        "no_propagation": "unlikely",
+        "wrong_band_time": "unlikely",
+        "antenna_direction": "unlikely",
+        "qrm_interference": "unlikely",
+        "no_activity": "unlikely"
+      },
+      "ahaHint": {
+        "de": "Das Krachen stammt von Blitzen – aber nicht unbedingt aus deiner Nähe! Tropische Gewitter in Afrika oder Südamerika können auf 80m in Europa als starke QRN ankommen. Im Sommer ist 80m abends oft sehr verrauscht.",
+        "en": "The crashes come from lightning – but not necessarily nearby! Tropical thunderstorms in Africa or South America can arrive as strong QRN on 80m in Europe. In summer, 80m is often very noisy in the evening."
+      }
+    },
+    {
+      "id": "nvis_fail_vertical",
+      "difficulty": "beginner",
+      "title": {
+        "de": "Der unerreichbare Nachbar",
+        "en": "The Unreachable Neighbor"
+      },
+      "situation": {
+        "de": "Mit deiner neuen Vertikalantenne willst du einen Funkfreund 80 km entfernt auf 80m am Abend erreichen. Das Band ist ruhig, du hörst Stationen aus Spanien und Italien, aber deinen Nachbarn hörst du nicht, und er dich auch nicht.",
+        "en": "With your new vertical antenna, you want to reach a radio friend 80 km away on 80m in the evening. The band is quiet, you hear stations from Spain and Italy, but you can't hear your neighbor, and he can't hear you either."
+      },
+      "band": "80m",
+      "time": "evening",
+      "distance": "very_close",
+      "antenna": "vertical",
+      "power": { "de": "100 Watt", "en": "100 Watts" },
+      "symptoms": ["silence", "qrm"],
+      "season": "autumn",
+      "causeMappings": {
+        "antenna_mismatch": "very_likely",
+        "skip_zone": "likely",
+        "absorption_d_layer": "unlikely",
+        "no_propagation": "unlikely",
+        "multipath_fading": "unlikely",
+        "wrong_band_time": "unlikely",
+        "low_power": "unlikely",
+        "antenna_direction": "unlikely",
+        "qrn_atmospheric": "unlikely",
+        "qrm_interference": "unlikely",
+        "local_noise": "unlikely",
+        "no_activity": "unlikely"
+      },
+      "ahaHint": {
+        "de": "Vertikalantennen strahlen hauptsächlich flach ab – super für DX, aber schlecht für nahegelegene Stationen! Für Entfernungen unter 500 km auf 80m braucht man NVIS – Signale, die fast senkrecht hochgehen. Dafür braucht man eine niedrig hängende horizontale Antenne.",
+        "en": "Vertical antennas radiate mainly at low angles – great for DX, but poor for nearby stations! For distances under 500 km on 80m, you need NVIS – signals that go almost straight up. For that, you need a low horizontal antenna."
+      }
+    },
+    {
+      "id": "polar_path_disturbed",
+      "difficulty": "intermediate",
+      "title": {
+        "de": "Der gestörte Nordamerika-Weg",
+        "en": "The Disturbed North America Path"
+      },
+      "situation": {
+        "de": "Normalerweise arbeitest du problemlos US-Stationen auf 20m. Heute ist das Band nach Süden offen – du hörst Südamerika und Afrika gut – aber aus Nordamerika kommt nur ein flatterndes, zerrissenes Signal, wenn überhaupt. Der K-Index steht auf 5.",
+        "en": "Normally you work US stations on 20m without problems. Today the band is open to the south – you hear South America and Africa well – but from North America there's only a fluttering, torn signal, if anything. The K-index is at 5."
+      },
+      "band": "20m",
+      "time": "afternoon",
+      "distance": "dx",
+      "antenna": "beam_yagi",
+      "power": { "de": "100 Watt", "en": "100 Watts" },
+      "symptoms": ["flutter", "weak", "silence"],
+      "season": "spring",
+      "causeMappings": {
+        "auroral_absorption": "very_likely",
+        "multipath_fading": "possible",
+        "antenna_direction": "possible",
+        "no_propagation": "unlikely",
+        "wrong_band_time": "unlikely",
+        "skip_zone": "unlikely",
+        "absorption_d_layer": "unlikely",
+        "antenna_mismatch": "unlikely",
+        "low_power": "unlikely",
+        "qrn_atmospheric": "unlikely",
+        "qrm_interference": "unlikely",
+        "local_noise": "unlikely",
+        "no_activity": "unlikely"
+      },
+      "ahaHint": {
+        "de": "Bei hohem K-Index (geomagnetischer Störung) werden polare Funkwege stark gedämpft. Der Weg nach Nordamerika führt über den Pol und ist dann gestört, während südliche Wege noch funktionieren. Das flatterige Signal ist typisch für Aurora-Störungen.",
+        "en": "With high K-index (geomagnetic disturbance), polar radio paths are heavily attenuated. The path to North America goes over the pole and is then disturbed, while southern paths still work. The fluttery signal is typical for aurora disturbances."
+      }
+    },
+    {
+      "id": "dx_pileup_unheard",
+      "difficulty": "intermediate",
+      "title": {
+        "de": "Unsichtbar im Pile-Up",
+        "en": "Invisible in the Pile-Up"
+      },
+      "situation": {
+        "de": "Eine seltene DX-Station aus dem Pazifik ist auf 20m aktiv. Du hörst sie laut und deutlich, und sie arbeitet Station für Station. Du rufst seit 30 Minuten, aber sie antwortet dir nie – obwohl sie Stationen arbeitet, die schwächer klingen als du.",
+        "en": "A rare DX station from the Pacific is active on 20m. You hear them loud and clear, and they're working station after station. You've been calling for 30 minutes, but they never answer you – even though they're working stations that sound weaker than you."
+      },
+      "band": "20m",
+      "time": "morning",
+      "distance": "dx",
+      "antenna": "dipole_high",
+      "power": { "de": "100 Watt", "en": "100 Watts" },
+      "symptoms": ["no_reply"],
+      "season": "winter",
+      "causeMappings": {
+        "split_operation": "very_likely",
+        "pileup_timing": "likely",
+        "low_power": "possible",
+        "antenna_mismatch": "possible",
+        "antenna_direction": "possible",
+        "no_propagation": "unlikely",
+        "wrong_band_time": "unlikely",
+        "skip_zone": "unlikely",
+        "absorption_d_layer": "unlikely",
+        "multipath_fading": "unlikely",
+        "qrn_atmospheric": "unlikely",
+        "qrm_interference": "unlikely",
+        "local_noise": "unlikely",
+        "no_activity": "unlikely"
+      },
+      "ahaHint": {
+        "de": "Seltene DX-Stationen arbeiten oft \"Split\" – sie senden auf einer Frequenz, hören aber 5-10 kHz höher. Wenn du auf der Sendefrequenz rufst, hört dich niemand! Höre genau zu: \"listening up 5\" oder \"up 5 to 10\" sind die Hinweise.",
+        "en": "Rare DX stations often work \"split\" – they transmit on one frequency but listen 5-10 kHz higher. If you call on their transmit frequency, nobody hears you! Listen carefully: \"listening up 5\" or \"up 5 to 10\" are the hints."
+      }
+    },
+    {
+      "id": "contest_weekend_chaos",
+      "difficulty": "beginner",
+      "title": {
+        "de": "Das überfüllte Band",
+        "en": "The Overcrowded Band"
+      },
+      "situation": {
+        "de": "Es ist Samstagnachmittag und du willst ein gemütliches QSO auf 20m führen. Aber das Band ist voller Stationen, die nur \"59 001\" und ähnliche Nummern austauschen. Jede freie Frequenz ist sofort wieder belegt, und deine CQ-Rufe werden ignoriert.",
+        "en": "It's Saturday afternoon and you want to have a relaxed QSO on 20m. But the band is full of stations only exchanging \"59 001\" and similar numbers. Every free frequency is immediately taken again, and your CQ calls are ignored."
+      },
+      "band": "20m",
+      "time": "afternoon",
+      "distance": "far",
+      "antenna": "g5rv",
+      "power": { "de": "100 Watt", "en": "100 Watts" },
+      "symptoms": ["qrm", "no_reply"],
+      "season": "autumn",
+      "causeMappings": {
+        "contest_qrm": "very_likely",
+        "qrm_interference": "likely",
+        "low_power": "possible",
+        "no_propagation": "unlikely",
+        "wrong_band_time": "unlikely",
+        "skip_zone": "unlikely",
+        "absorption_d_layer": "unlikely",
+        "multipath_fading": "unlikely",
+        "antenna_mismatch": "unlikely",
+        "antenna_direction": "unlikely",
+        "qrn_atmospheric": "unlikely",
+        "local_noise": "unlikely",
+        "no_activity": "unlikely"
+      },
+      "ahaHint": {
+        "de": "Das ist ein Contest-Wochenende! Die Stationen tauschen Conteste-Nummern aus und haben keine Zeit für normale QSOs. Die WARC-Bänder (30m, 17m, 12m) sind contestfrei – probiere es dort für ein ruhiges QSO.",
+        "en": "This is a contest weekend! The stations are exchanging contest numbers and have no time for normal QSOs. The WARC bands (30m, 17m, 12m) are contest-free – try there for a relaxed QSO."
+      }
+    },
+    {
+      "id": "wrong_sideband_40m",
+      "difficulty": "beginner",
+      "title": {
+        "de": "Die verzerrte Stimme",
+        "en": "The Distorted Voice"
+      },
+      "situation": {
+        "de": "Du rufst auf 40m CQ und eine Station antwortet. Aber die Stimme klingt total verzerrt – wie Donald Duck. Du verstehst kein Wort. Die Gegenstation scheint das gleiche Problem zu haben und bricht das QSO ab.",
+        "en": "You're calling CQ on 40m and a station answers. But the voice sounds totally distorted – like Donald Duck. You can't understand a word. The other station seems to have the same problem and abandons the QSO."
+      },
+      "band": "40m",
+      "time": "evening",
+      "distance": "far",
+      "antenna": "dipole_high",
+      "power": { "de": "100 Watt", "en": "100 Watts" },
+      "symptoms": ["distorted"],
+      "season": "winter",
+      "causeMappings": {
+        "wrong_sideband": "very_likely",
+        "wrong_mode": "likely",
+        "multipath_fading": "unlikely",
+        "no_propagation": "unlikely",
+        "wrong_band_time": "unlikely",
+        "skip_zone": "unlikely",
+        "absorption_d_layer": "unlikely",
+        "antenna_mismatch": "unlikely",
+        "low_power": "unlikely",
+        "antenna_direction": "unlikely",
+        "qrn_atmospheric": "unlikely",
+        "qrm_interference": "unlikely",
+        "local_noise": "unlikely",
+        "no_activity": "unlikely"
+      },
+      "ahaHint": {
+        "de": "Auf 40m (unter 10 MHz) verwendet man LSB (Lower Sideband), nicht USB! Wenn einer USB und einer LSB eingestellt hat, klingt alles verzerrt. Merke: Unter 10 MHz = LSB, darüber = USB.",
+        "en": "On 40m (below 10 MHz) you use LSB (Lower Sideband), not USB! If one station has USB and another LSB, everything sounds distorted. Remember: Below 10 MHz = LSB, above = USB."
+      }
+    },
+    {
+      "id": "indoor_antenna_problems",
+      "difficulty": "beginner",
+      "title": {
+        "de": "Die Zimmerantenne",
+        "en": "The Indoor Antenna"
+      },
+      "situation": {
+        "de": "Du hast eine Magnetic Loop als Zimmerantenne und versuchst auf 20m Stationen zu erreichen. Du hörst einige Stationen aus Europa, aber niemand antwortet auf deine Rufe. Das SWR ist gut, aber irgendwas stimmt nicht.",
+        "en": "You have a Magnetic Loop as an indoor antenna and are trying to reach stations on 20m. You hear some stations from Europe, but no one answers your calls. The SWR is good, but something's not right."
+      },
+      "band": "20m",
+      "time": "afternoon",
+      "distance": "far",
+      "antenna": "magnetic_loop",
+      "power": { "de": "50 Watt", "en": "50 Watts" },
+      "symptoms": ["weak", "noise_floor", "no_reply"],
+      "season": "winter",
+      "causeMappings": {
+        "antenna_mismatch": "very_likely",
+        "local_noise": "very_likely",
+        "low_power": "likely",
+        "coax_loss": "possible",
+        "no_propagation": "unlikely",
+        "wrong_band_time": "unlikely",
+        "skip_zone": "unlikely",
+        "absorption_d_layer": "unlikely",
+        "multipath_fading": "unlikely",
+        "antenna_direction": "unlikely",
+        "qrn_atmospheric": "unlikely",
+        "qrm_interference": "unlikely",
+        "no_activity": "unlikely"
+      },
+      "ahaHint": {
+        "de": "Zimmerantennen haben zwei Probleme: Sie sind von Störquellen im Haus umgeben (hoher Noise Floor beim Empfang), und sie sind deutlich ineffizienter als Außenantennen (geringe Sendeleistung kommt an). Du hörst also weniger UND wirst weniger gehört.",
+        "en": "Indoor antennas have two problems: They're surrounded by noise sources in the house (high noise floor on receive), and they're much less efficient than outdoor antennas (less transmitted power actually radiates). So you hear less AND you're heard less."
+      }
+    },
+    {
+      "id": "grey_line_missed",
+      "difficulty": "intermediate",
+      "title": {
+        "de": "Das verpasste Fenster",
+        "en": "The Missed Window"
+      },
+      "situation": {
+        "de": "Dein Funkfreund in Japan sagt, ihr könntet auf 40m um den Sonnenaufgang Kontakt haben. Du bist um 7:30 Uhr am Funk, aber hörst nur schwaches Rauschen. Gestern um 6:45 hat es funktioniert, sagt er.",
+        "en": "Your radio friend in Japan says you could make contact on 40m around sunrise. You're at the radio at 7:30 AM but only hear weak noise. Yesterday at 6:45 it worked, he says."
+      },
+      "band": "40m",
+      "time": "early_morning",
+      "distance": "dx",
+      "antenna": "dipole_high",
+      "power": { "de": "100 Watt", "en": "100 Watts" },
+      "symptoms": ["silence", "weak"],
+      "season": "winter",
+      "causeMappings": {
+        "grey_line": "very_likely",
+        "wrong_band_time": "likely",
+        "no_propagation": "possible",
+        "absorption_d_layer": "possible",
+        "skip_zone": "unlikely",
+        "multipath_fading": "unlikely",
+        "antenna_mismatch": "unlikely",
+        "low_power": "unlikely",
+        "antenna_direction": "unlikely",
+        "qrn_atmospheric": "unlikely",
+        "qrm_interference": "unlikely",
+        "local_noise": "unlikely",
+        "no_activity": "unlikely"
+      },
+      "ahaHint": {
+        "de": "Grey-Line-Verbindungen funktionieren nur in einem kurzen Zeitfenster um Sonnenauf- oder -untergang – oft nur 15-30 Minuten! 45 Minuten zu spät ist zu spät. Die D-Schicht baut sich nach Sonnenaufgang schnell auf und \"schließt\" den Weg.",
+        "en": "Grey-line contacts only work in a short time window around sunrise or sunset – often only 15-30 minutes! 45 minutes late is too late. The D-layer builds up quickly after sunrise and \"closes\" the path."
+      }
+    },
+    {
+      "id": "sporadic_e_gone",
+      "difficulty": "intermediate",
+      "title": {
+        "de": "Die verschwundene Öffnung",
+        "en": "The Vanishing Opening"
+      },
+      "situation": {
+        "de": "Auf 10m hörst du plötzlich laute italienische Stationen – Sporadic E! Du rufst begeistert CQ, aber nach 5 Minuten ist wieder alles still. Das Band scheint zu sein.",
+        "en": "On 10m you suddenly hear loud Italian stations – Sporadic E! You excitedly call CQ, but after 5 minutes everything is silent again. The band seems dead."
+      },
+      "band": "10m",
+      "time": "afternoon",
+      "distance": "far",
+      "antenna": "vertical",
+      "power": { "de": "100 Watt", "en": "100 Watts" },
+      "symptoms": ["silence"],
+      "season": "summer",
+      "causeMappings": {
+        "sporadic_e": "very_likely",
+        "no_propagation": "likely",
+        "wrong_band_time": "possible",
+        "skip_zone": "unlikely",
+        "absorption_d_layer": "unlikely",
+        "multipath_fading": "unlikely",
+        "antenna_mismatch": "unlikely",
+        "low_power": "unlikely",
+        "antenna_direction": "unlikely",
+        "qrn_atmospheric": "unlikely",
+        "qrm_interference": "unlikely",
+        "local_noise": "unlikely",
+        "no_activity": "unlikely"
+      },
+      "ahaHint": {
+        "de": "Sporadische E-Schicht (Es) kommt und geht unvorhersehbar – manchmal für Stunden, manchmal nur für Minuten. Es hat nichts mit deiner Station zu tun! Wenn Es da ist: schnell arbeiten. Wenn es weg ist: auf die nächste Öffnung warten.",
+        "en": "Sporadic E layer (Es) comes and goes unpredictably – sometimes for hours, sometimes just minutes. It has nothing to do with your station! When Es is there: work fast. When it's gone: wait for the next opening."
+      }
+    },
+    {
+      "id": "high_swr_bandedge",
+      "difficulty": "beginner",
+      "title": {
+        "de": "Der Transceiver macht zu",
+        "en": "The Transceiver Shuts Down"
+      },
+      "situation": {
+        "de": "Du hast deinen Dipol auf die Bandmitte von 20m (14.200 MHz) abgestimmt. Jetzt willst du am oberen Bandende (14.340 MHz) funken. Der Transceiver bringt aber nur noch ein paar Watt Leistung statt 100W.",
+        "en": "You tuned your dipole to the middle of 20m (14.200 MHz). Now you want to operate at the upper band edge (14.340 MHz). But the transceiver only puts out a few watts instead of 100W."
+      },
+      "band": "20m",
+      "time": "afternoon",
+      "distance": "far",
+      "antenna": "dipole_high",
+      "power": { "de": "100 Watt (gewünscht)", "en": "100 Watts (desired)" },
+      "symptoms": ["high_swr", "weak"],
+      "season": "autumn",
+      "causeMappings": {
+        "swr_high": "very_likely",
+        "antenna_mismatch": "very_likely",
+        "low_power": "likely",
+        "coax_loss": "possible",
+        "no_propagation": "unlikely",
+        "wrong_band_time": "unlikely",
+        "skip_zone": "unlikely",
+        "absorption_d_layer": "unlikely",
+        "multipath_fading": "unlikely",
+        "antenna_direction": "unlikely",
+        "qrn_atmospheric": "unlikely",
+        "qrm_interference": "unlikely",
+        "local_noise": "unlikely",
+        "no_activity": "unlikely"
+      },
+      "ahaHint": {
+        "de": "Resonante Antennen wie Dipole haben nur eine begrenzte Bandbreite. Am Bandrand steigt das SWR, und der Transceiver schützt sich durch Leistungsreduktion. Ein Antennentuner kann helfen – oder du stimmst die Antenne etwas breiter ab.",
+        "en": "Resonant antennas like dipoles have limited bandwidth. At the band edge, the SWR rises, and the transceiver protects itself by reducing power. An antenna tuner can help – or you tune the antenna a bit broader."
+      }
+    },
+    {
+      "id": "mobile_qrp_struggle",
+      "difficulty": "beginner",
+      "title": {
+        "de": "Mobil-Frust auf der Autobahn",
+        "en": "Mobile Frustration on the Highway"
+      },
+      "situation": {
+        "de": "Du fährst mit deinem Mobilfunkgerät (50W) und kurzer Mobilantenne auf der Autobahn. Auf 40m hörst du eine lokale Runde in 200 km Entfernung. Du rufst dazwischen, aber niemand reagiert – obwohl die anderen Stationen einander problemlos hören.",
+        "en": "You're driving with your mobile rig (50W) and short mobile antenna on the highway. On 40m you hear a local round 200 km away. You call in, but no one responds – even though the other stations hear each other fine."
+      },
+      "band": "40m",
+      "time": "afternoon",
+      "distance": "close",
+      "antenna": "mobile",
+      "power": { "de": "50 Watt", "en": "50 Watts" },
+      "symptoms": ["no_reply"],
+      "season": "summer",
+      "causeMappings": {
+        "antenna_mismatch": "very_likely",
+        "low_power": "likely",
+        "skip_zone": "possible",
+        "local_noise": "possible",
+        "coax_loss": "possible",
+        "no_propagation": "unlikely",
+        "wrong_band_time": "unlikely",
+        "absorption_d_layer": "unlikely",
+        "multipath_fading": "unlikely",
+        "antenna_direction": "unlikely",
+        "qrn_atmospheric": "unlikely",
+        "qrm_interference": "unlikely",
+        "no_activity": "unlikely"
+      },
+      "ahaHint": {
+        "de": "Kurze Mobilantennen sind auf 40m extrem ineffizient – vielleicht strahlen nur 5-10% der Leistung wirklich ab. Du empfängst zwar einigermaßen, aber sendest mit \"effektiv\" nur wenigen Watt. Für Mobilbetrieb ist 20m deutlich besser geeignet.",
+        "en": "Short mobile antennas are extremely inefficient on 40m – perhaps only 5-10% of the power actually radiates. You receive reasonably well, but transmit with \"effectively\" only a few watts. For mobile operation, 20m is much better suited."
+      }
+    },
+    {
+      "id": "long_path_surprise",
+      "difficulty": "advanced",
+      "title": {
+        "de": "Der falsche Weg nach Australien",
+        "en": "The Wrong Way to Australia"
+      },
+      "situation": {
+        "de": "Du drehst deine Yagi nach Australien (Südosten) und rufst auf 20m. Nichts. Aber als du die Antenne komplett in die Gegenrichtung drehst (Nordwesten), hörst du plötzlich VK-Stationen!",
+        "en": "You point your Yagi toward Australia (southeast) and call on 20m. Nothing. But when you turn the antenna completely in the opposite direction (northwest), you suddenly hear VK stations!"
+      },
+      "band": "20m",
+      "time": "evening",
+      "distance": "antipode",
+      "antenna": "beam_yagi",
+      "power": { "de": "100 Watt", "en": "100 Watts" },
+      "symptoms": ["silence"],
+      "season": "winter",
+      "causeMappings": {
+        "antenna_direction": "very_likely",
+        "no_propagation": "possible",
+        "wrong_band_time": "possible",
+        "auroral_absorption": "possible",
+        "skip_zone": "unlikely",
+        "absorption_d_layer": "unlikely",
+        "multipath_fading": "unlikely",
+        "antenna_mismatch": "unlikely",
+        "low_power": "unlikely",
+        "qrn_atmospheric": "unlikely",
+        "qrm_interference": "unlikely",
+        "local_noise": "unlikely",
+        "no_activity": "unlikely"
+      },
+      "ahaHint": {
+        "de": "Das ist Long Path! Funkwellen können um die halbe oder ganze Erde herum laufen. Manchmal ist der \"lange Weg\" (über die andere Erdhälfte) besser als der \"kurze Weg\", besonders wenn der kurze Weg durch die Polnacht oder gestörte Gebiete führt.",
+        "en": "This is long path! Radio waves can travel around half or the entire Earth. Sometimes the \"long path\" (over the other side of Earth) is better than the \"short path\", especially when the short path goes through polar night or disturbed areas."
+      }
+    },
+    {
+      "id": "local_noise_investigation",
+      "difficulty": "beginner",
+      "title": {
+        "de": "Der mysteriöse S9-Pegel",
+        "en": "The Mysterious S9 Level"
+      },
+      "situation": {
+        "de": "Seit Wochen zeigt dein S-Meter auf allen Bändern S7-S9 Rauschen an – auch wenn das Band eigentlich leer sein sollte. Schwache Signale gehen im Rauschen unter. Das Problem ist abends schlimmer als tagsüber.",
+        "en": "For weeks your S-meter shows S7-S9 noise on all bands – even when the band should be empty. Weak signals get lost in the noise. The problem is worse in the evening than during the day."
+      },
+      "band": "20m",
+      "time": "evening",
+      "distance": "far",
+      "antenna": "end_fed",
+      "power": { "de": "100 Watt", "en": "100 Watts" },
+      "symptoms": ["noise_floor", "weak"],
+      "season": "winter",
+      "causeMappings": {
+        "local_noise": "very_likely",
+        "coax_loss": "possible",
+        "antenna_mismatch": "possible",
+        "qrn_atmospheric": "unlikely",
+        "qrm_interference": "unlikely",
+        "no_propagation": "unlikely",
+        "wrong_band_time": "unlikely",
+        "skip_zone": "unlikely",
+        "absorption_d_layer": "unlikely",
+        "multipath_fading": "unlikely",
+        "antenna_direction": "unlikely",
+        "low_power": "unlikely",
+        "no_activity": "unlikely"
+      },
+      "ahaHint": {
+        "de": "Das klingt nach einer lokalen Störquelle – typischerweise Schaltnetzteile, LED-Lampen, Solarwechselrichter oder Powerline-Adapter (DLAN). Dass es abends schlimmer ist, deutet auf etwas hin, das dann eingeschaltet wird. Systematisches Ausschalten hilft, die Quelle zu finden.",
+        "en": "This sounds like a local noise source – typically switching power supplies, LED lights, solar inverters, or powerline adapters. That it's worse in the evening suggests something that gets turned on then. Systematically switching off devices helps find the source."
+      }
+    }
+  ]
+}

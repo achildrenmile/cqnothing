@@ -1,0 +1,487 @@
+{
+  "version": "1.0",
+  "categories": {
+    "propagation": {
+      "de": "Ausbreitung",
+      "en": "Propagation"
+    },
+    "timing": {
+      "de": "Zeitpunkt",
+      "en": "Timing"
+    },
+    "equipment": {
+      "de": "Ausrüstung",
+      "en": "Equipment"
+    },
+    "interference": {
+      "de": "Störungen",
+      "en": "Interference"
+    },
+    "operator": {
+      "de": "Betrieb",
+      "en": "Operation"
+    }
+  },
+  "causes": [
+    {
+      "id": "skip_zone",
+      "category": "propagation",
+      "name": {
+        "de": "Tote Zone (Skip Zone)",
+        "en": "Skip Zone (Dead Zone)"
+      },
+      "description": {
+        "de": "Die Zielstation liegt in einem Bereich, den die Funkwellen überspringen.",
+        "en": "The target station is in an area that radio waves skip over."
+      },
+      "explanation": {
+        "de": "Kurzwellen werden an der Ionosphäre reflektiert und \"springen\" zurück zur Erde. Dabei gibt es einen Bereich zwischen der Reichweite der Bodenwelle und dem ersten Auftreffpunkt der Raumwelle – die \"Tote Zone\" oder \"Skip Zone\". Stationen in diesem Bereich können nicht erreicht werden.",
+        "en": "Shortwave signals are reflected by the ionosphere and \"skip\" back to Earth. There's an area between the ground wave range and where the sky wave first lands – the \"skip zone\" or \"dead zone\". Stations in this area cannot be reached."
+      },
+      "learnMore": {
+        "de": "Die Skip Zone ändert sich mit der Tageszeit und Frequenz. Höhere Frequenzen haben oft größere Skip Zones.",
+        "en": "The skip zone changes with time of day and frequency. Higher frequencies often have larger skip zones."
+      }
+    },
+    {
+      "id": "absorption_d_layer",
+      "category": "propagation",
+      "name": {
+        "de": "D-Schicht-Absorption",
+        "en": "D-Layer Absorption"
+      },
+      "description": {
+        "de": "Die unterste Ionosphärenschicht absorbiert tagsüber die Funkwellen.",
+        "en": "The lowest ionospheric layer absorbs radio waves during daytime."
+      },
+      "explanation": {
+        "de": "Tagsüber bildet sich die D-Schicht in etwa 60-90 km Höhe. Sie reflektiert keine Kurzwellen, sondern absorbiert sie – besonders auf den niedrigen Bändern (160m, 80m, 40m). Das Signal wird \"geschluckt\", bevor es die reflektierende F-Schicht erreichen kann.",
+        "en": "During daytime, the D-layer forms at about 60-90 km altitude. It doesn't reflect shortwave signals but absorbs them – especially on lower bands (160m, 80m, 40m). The signal gets \"swallowed\" before it can reach the reflecting F-layer."
+      },
+      "learnMore": {
+        "de": "Nach Sonnenuntergang verschwindet die D-Schicht schnell, und die niedrigen Bänder \"öffnen\" für Weitverbindungen.",
+        "en": "After sunset, the D-layer quickly disappears, and the lower bands \"open\" for long-distance contacts."
+      }
+    },
+    {
+      "id": "no_propagation",
+      "category": "propagation",
+      "name": {
+        "de": "Keine Ausbreitung möglich",
+        "en": "No Propagation Possible"
+      },
+      "description": {
+        "de": "Die Ionosphäre kann die Frequenz zu dieser Zeit nicht reflektieren.",
+        "en": "The ionosphere cannot reflect this frequency at this time."
+      },
+      "explanation": {
+        "de": "Jede Ionosphärenschicht hat eine maximale Frequenz, die sie reflektieren kann (MUF = Maximum Usable Frequency). Wenn deine Frequenz darüber liegt, durchdringt das Signal die Ionosphäre und geht ins Weltall verloren. Nachts ist die MUF niedriger, daher funktionieren hohe Bänder (10m, 15m) oft nur tagsüber.",
+        "en": "Each ionospheric layer has a maximum frequency it can reflect (MUF = Maximum Usable Frequency). If your frequency is higher, the signal penetrates the ionosphere and is lost to space. At night, the MUF is lower, so high bands (10m, 15m) often only work during daytime."
+      },
+      "learnMore": {
+        "de": "Die Sonnenaktivität beeinflusst die MUF stark. Im Sonnenfleckenmaximum funktionieren hohe Bänder viel besser.",
+        "en": "Solar activity strongly influences the MUF. During solar maximum, high bands work much better."
+      }
+    },
+    {
+      "id": "multipath_fading",
+      "category": "propagation",
+      "name": {
+        "de": "Mehrwege-Fading",
+        "en": "Multipath Fading"
+      },
+      "description": {
+        "de": "Das Signal nimmt mehrere Wege und die Signale löschen sich teilweise aus.",
+        "en": "The signal takes multiple paths and the signals partially cancel each other."
+      },
+      "explanation": {
+        "de": "Ein Funksignal kann über verschiedene Wege zum Empfänger gelangen – direkt, ein- oder mehrfach reflektiert. Wenn diese Signale mit unterschiedlichen Laufzeiten ankommen, können sie sich gegenseitig verstärken oder auslöschen. Das führt zum typischen \"Schwimmen\" oder \"Fading\" des Signals.",
+        "en": "A radio signal can reach the receiver via different paths – direct, single or multiple reflections. When these signals arrive with different travel times, they can reinforce or cancel each other. This causes the typical \"swimming\" or \"fading\" of the signal."
+      },
+      "learnMore": {
+        "de": "Fading ist besonders auf den mittleren Bändern (40m, 20m) bei mittleren Entfernungen häufig.",
+        "en": "Fading is especially common on mid-bands (40m, 20m) at medium distances."
+      }
+    },
+    {
+      "id": "auroral_absorption",
+      "category": "propagation",
+      "name": {
+        "de": "Polare Absorption (Aurora)",
+        "en": "Polar/Auroral Absorption"
+      },
+      "description": {
+        "de": "Geomagnetische Störungen absorbieren Signale auf polaren Funkwegen.",
+        "en": "Geomagnetic disturbances absorb signals on polar radio paths."
+      },
+      "explanation": {
+        "de": "Bei Sonnenstürmen oder hoher geomagnetischer Aktivität werden Funkwellen auf Wegen über die Polarregionen stark absorbiert. Verbindungen nach Nordamerika oder Skandinavien können dann plötzlich unmöglich werden, obwohl andere Richtungen noch funktionieren.",
+        "en": "During solar storms or high geomagnetic activity, radio waves on paths over polar regions are heavily absorbed. Connections to North America or Scandinavia can suddenly become impossible, even though other directions still work."
+      },
+      "learnMore": {
+        "de": "Der K-Index zeigt die geomagnetische Aktivität an. Ab K=4 können polare Wege gestört sein.",
+        "en": "The K-index indicates geomagnetic activity. From K=4 onwards, polar paths can be disturbed."
+      }
+    },
+    {
+      "id": "sporadic_e",
+      "category": "propagation",
+      "name": {
+        "de": "Sporadische E-Schicht fehlt",
+        "en": "Sporadic E Layer Missing"
+      },
+      "description": {
+        "de": "Die für Kurzstrecken-DX benötigte Es-Schicht ist nicht vorhanden.",
+        "en": "The sporadic E layer needed for short-range DX is not present."
+      },
+      "explanation": {
+        "de": "Die sporadische E-Schicht (Es) ermöglicht im Sommer oft überraschende Verbindungen auf 10m und 6m über 500-2000 km. Sie tritt unvorhersehbar auf und verschwindet ebenso plötzlich. Wenn du auf Es hoffst und nichts passiert, ist die Schicht einfach nicht da.",
+        "en": "The sporadic E layer (Es) often enables surprising contacts on 10m and 6m over 500-2000 km in summer. It appears unpredictably and disappears just as suddenly. If you're hoping for Es and nothing happens, the layer simply isn't there."
+      },
+      "learnMore": {
+        "de": "Es-Ausbreitung ist im Mai-August am häufigsten und tritt oft nachmittags und abends auf.",
+        "en": "Es propagation is most common in May-August and often occurs in the afternoon and evening."
+      }
+    },
+    {
+      "id": "wrong_band_time",
+      "category": "timing",
+      "name": {
+        "de": "Band passt nicht zur Tageszeit",
+        "en": "Band Doesn't Match Time of Day"
+      },
+      "description": {
+        "de": "Das gewählte Band funktioniert zu dieser Uhrzeit nicht gut.",
+        "en": "The chosen band doesn't work well at this time."
+      },
+      "explanation": {
+        "de": "Amateurfunkbänder verhalten sich je nach Tageszeit unterschiedlich:\n• 80m/160m: Hauptsächlich nachts nutzbar (D-Schicht-Absorption tagsüber)\n• 40m: Tagsüber regional, nachts interkontinental\n• 20m: Das \"Arbeitspferd\" – oft ganztägig nutzbar\n• 15m/10m: Nur bei guter Sonnenaktivität, hauptsächlich tagsüber",
+        "en": "Amateur bands behave differently depending on time of day:\n• 80m/160m: Mainly usable at night (D-layer absorption during day)\n• 40m: Regional during day, intercontinental at night\n• 20m: The \"workhorse\" – often usable all day\n• 15m/10m: Only with good solar activity, mainly daytime"
+      },
+      "learnMore": {
+        "de": "Eine Faustregel: \"Nachts niedrig, tagsüber hoch\" – aber es gibt viele Ausnahmen!",
+        "en": "A rule of thumb: \"Low at night, high during day\" – but there are many exceptions!"
+      }
+    },
+    {
+      "id": "grey_line",
+      "category": "timing",
+      "name": {
+        "de": "Grey-Line-Fenster verpasst",
+        "en": "Grey Line Window Missed"
+      },
+      "description": {
+        "de": "Die optimale Dämmerungszeit für bestimmte Verbindungen wurde verpasst.",
+        "en": "The optimal twilight time for certain connections was missed."
+      },
+      "explanation": {
+        "de": "Die Grey Line (Dämmerungszone) ermöglicht oft außergewöhnliche Verbindungen, weil die D-Schicht-Absorption gering ist, während die F-Schicht noch reflektiert. Diese Fenster sind aber kurz – oft nur 15-30 Minuten um Sonnenauf- oder -untergang.",
+        "en": "The grey line (twilight zone) often enables exceptional contacts because D-layer absorption is low while the F-layer still reflects. But these windows are short – often only 15-30 minutes around sunrise or sunset."
+      },
+      "learnMore": {
+        "de": "Grey-Line-DX ist besonders effektiv auf 40m und 80m für sonst schwierige Verbindungen.",
+        "en": "Grey-line DX is especially effective on 40m and 80m for otherwise difficult contacts."
+      }
+    },
+    {
+      "id": "antenna_mismatch",
+      "category": "equipment",
+      "name": {
+        "de": "Antenne ungeeignet",
+        "en": "Antenna Unsuitable"
+      },
+      "description": {
+        "de": "Die Antenne ist für diese Frequenz oder Entfernung nicht geeignet.",
+        "en": "The antenna is not suitable for this frequency or distance."
+      },
+      "explanation": {
+        "de": "Verschiedene Antennen haben unterschiedliche Eigenschaften:\n• Niedrig hängende Antennen: Besser für steile Abstrahlwinkel (Nahverkehr)\n• Hoch montierte Antennen: Besser für flache Winkel (DX)\n• Vertikalantennen: Flacher Abstrahlwinkel, gut für DX\n• Kurze Behelfsantennen: Oft ineffizient und schlecht angepasst",
+        "en": "Different antennas have different characteristics:\n• Low-hanging antennas: Better for steep radiation angles (short range)\n• High-mounted antennas: Better for low angles (DX)\n• Vertical antennas: Low radiation angle, good for DX\n• Short makeshift antennas: Often inefficient and poorly matched"
+      },
+      "learnMore": {
+        "de": "Die Antenne ist oft der wichtigste Teil einer Funkstation – wichtiger als teure Sender!",
+        "en": "The antenna is often the most important part of a radio station – more important than expensive transmitters!"
+      }
+    },
+    {
+      "id": "low_power",
+      "category": "equipment",
+      "name": {
+        "de": "Zu wenig Sendeleistung",
+        "en": "Insufficient Transmit Power"
+      },
+      "description": {
+        "de": "Die Sendeleistung reicht für die Entfernung nicht aus.",
+        "en": "The transmit power is insufficient for the distance."
+      },
+      "explanation": {
+        "de": "Obwohl mit QRP (wenig Leistung) erstaunliche Verbindungen möglich sind, braucht man bei schlechten Bedingungen oft mehr Leistung. Besonders bei Absorption, Störungen oder ungünstigen Antennen kann zu wenig Leistung das Problem sein.",
+        "en": "Although amazing contacts are possible with QRP (low power), poor conditions often require more power. Especially with absorption, interference, or unfavorable antennas, insufficient power can be the problem."
+      },
+      "learnMore": {
+        "de": "Eine Verdopplung der Leistung bringt nur 3 dB – eine bessere Antenne ist oft effektiver!",
+        "en": "Doubling the power only gives 3 dB – a better antenna is often more effective!"
+      }
+    },
+    {
+      "id": "antenna_direction",
+      "category": "equipment",
+      "name": {
+        "de": "Antenne falsch ausgerichtet",
+        "en": "Antenna Pointed Wrong Direction"
+      },
+      "description": {
+        "de": "Die Richtantenne zeigt nicht zur Zielstation.",
+        "en": "The directional antenna is not pointed at the target station."
+      },
+      "explanation": {
+        "de": "Richtantennen (z.B. Yagi) bündeln die Energie in eine Richtung. Das erhöht die Reichweite in diese Richtung, aber Stationen in anderen Richtungen werden kaum erreicht. Die Antenne muss zur Zielstation gedreht werden.",
+        "en": "Directional antennas (e.g., Yagi) focus energy in one direction. This increases range in that direction, but stations in other directions are barely reached. The antenna must be rotated toward the target station."
+      },
+      "learnMore": {
+        "de": "Bei sehr weiten Verbindungen kann der kürzeste Weg über den anderen Pol führen (Long Path)!",
+        "en": "For very long distances, the shortest path might be over the other pole (long path)!"
+      }
+    },
+    {
+      "id": "swr_high",
+      "category": "equipment",
+      "name": {
+        "de": "Hohes SWR / Fehlanpassung",
+        "en": "High SWR / Mismatch"
+      },
+      "description": {
+        "de": "Die Antenne ist nicht richtig auf die Frequenz abgestimmt.",
+        "en": "The antenna is not properly tuned to the frequency."
+      },
+      "explanation": {
+        "de": "Wenn das Stehwellenverhältnis (SWR) zu hoch ist, wird ein Teil der Sendeleistung reflektiert statt abgestrahlt. Bei SWR über 2:1 kann der Transceiver die Leistung reduzieren oder ganz abschalten. Ein Antennentuner kann helfen.",
+        "en": "When the standing wave ratio (SWR) is too high, part of the transmit power is reflected instead of radiated. With SWR above 2:1, the transceiver may reduce power or shut down entirely. An antenna tuner can help."
+      },
+      "learnMore": {
+        "de": "Ein SWR von 1,5:1 bedeutet etwa 4% Leistungsverlust – das ist in der Praxis vernachlässigbar.",
+        "en": "An SWR of 1.5:1 means about 4% power loss – this is negligible in practice."
+      }
+    },
+    {
+      "id": "coax_loss",
+      "category": "equipment",
+      "name": {
+        "de": "Kabelverluste zu hoch",
+        "en": "Cable Losses Too High"
+      },
+      "description": {
+        "de": "Das Antennenkabel hat zu viel Dämpfung oder ist defekt.",
+        "en": "The antenna cable has too much attenuation or is defective."
+      },
+      "explanation": {
+        "de": "Lange oder dünne Koaxialkabel können erhebliche Verluste verursachen, besonders auf höheren Frequenzen. Auch Feuchtigkeit in Steckern oder Kabelbrüche können das Signal stark dämpfen – sowohl beim Senden als auch beim Empfangen.",
+        "en": "Long or thin coaxial cables can cause significant losses, especially on higher frequencies. Moisture in connectors or cable breaks can also heavily attenuate the signal – both when transmitting and receiving."
+      },
+      "learnMore": {
+        "de": "RG-58 hat bei 30 MHz etwa 10 dB Verlust pro 100m – bei 10m Kabel sind das immer noch 1 dB!",
+        "en": "RG-58 has about 10 dB loss per 100m at 30 MHz – with 10m of cable, that's still 1 dB!"
+      }
+    },
+    {
+      "id": "qrn_atmospheric",
+      "category": "interference",
+      "name": {
+        "de": "Atmosphärische Störungen (QRN)",
+        "en": "Atmospheric Noise (QRN)"
+      },
+      "description": {
+        "de": "Gewitter oder andere atmosphärische Störungen überdecken das Signal.",
+        "en": "Thunderstorms or other atmospheric disturbances mask the signal."
+      },
+      "explanation": {
+        "de": "Blitze erzeugen starke elektromagnetische Impulse, die als Krachen und Prasseln auf Kurzwelle zu hören sind. Diese \"QRN\" genannten Störungen sind besonders auf den niedrigen Bändern (80m, 160m) stark und können Signale komplett überdecken.",
+        "en": "Lightning creates strong electromagnetic pulses that are heard as crashes and crackles on shortwave. This interference, called \"QRN\", is especially strong on lower bands (80m, 160m) and can completely mask signals."
+      },
+      "learnMore": {
+        "de": "Im Sommer sind die niedrigen Bänder oft durch tropische Gewitter gestört – selbst wenn bei dir gutes Wetter ist!",
+        "en": "In summer, lower bands are often disturbed by tropical thunderstorms – even when the weather is fine where you are!"
+      }
+    },
+    {
+      "id": "qrm_interference",
+      "category": "interference",
+      "name": {
+        "de": "Störungen durch andere Stationen (QRM)",
+        "en": "Interference from Other Stations (QRM)"
+      },
+      "description": {
+        "de": "Andere Funkstationen stören auf der gleichen oder einer nahen Frequenz.",
+        "en": "Other radio stations interfere on the same or a nearby frequency."
+      },
+      "explanation": {
+        "de": "Das Kurzwellenspektrum wird von vielen Funkdiensten genutzt. Wenn andere Stationen auf oder nahe deiner Frequenz senden, kann das die Kommunikation unmöglich machen. Das nennt man \"QRM\".",
+        "en": "The shortwave spectrum is used by many radio services. When other stations transmit on or near your frequency, it can make communication impossible. This is called \"QRM\"."
+      },
+      "learnMore": {
+        "de": "Ein schmaler Filter im Empfänger kann bei QRM helfen – bei QRN leider nicht.",
+        "en": "A narrow filter in the receiver can help with QRM – unfortunately not with QRN."
+      }
+    },
+    {
+      "id": "local_noise",
+      "category": "interference",
+      "name": {
+        "de": "Lokale Störquellen",
+        "en": "Local Noise Sources"
+      },
+      "description": {
+        "de": "Elektronische Geräte in deiner Nähe erzeugen Störungen.",
+        "en": "Electronic devices near you create interference."
+      },
+      "explanation": {
+        "de": "Schaltnetzteile, LED-Lampen, Computer, Router, Solarwechselrichter und andere elektronische Geräte können starke Störungen auf Kurzwelle verursachen. Diese \"lokalen Störungen\" können den Empfang komplett unmöglich machen.",
+        "en": "Switching power supplies, LED lights, computers, routers, solar inverters and other electronic devices can cause strong interference on shortwave. This \"local noise\" can make reception completely impossible."
+      },
+      "learnMore": {
+        "de": "Tipp: Schalte nacheinander verschiedene Geräte aus, um die Störquelle zu finden!",
+        "en": "Tip: Turn off different devices one by one to find the noise source!"
+      }
+    },
+    {
+      "id": "contest_qrm",
+      "category": "interference",
+      "name": {
+        "de": "Contest-Betrieb",
+        "en": "Contest Activity"
+      },
+      "description": {
+        "de": "Ein Funkwettbewerb belegt das Band mit vielen starken Stationen.",
+        "en": "A radio contest fills the band with many strong stations."
+      },
+      "explanation": {
+        "de": "Während großer Contests (CQ WW, CQ WPX, ARRL DX etc.) sind die Bänder voll mit Stationen, die nur kurze Contest-Austausche machen. Normale QSOs sind dann schwierig, und ungeübte Operatoren werden leicht überhört.",
+        "en": "During major contests (CQ WW, CQ WPX, ARRL DX etc.), the bands are full of stations making only brief contest exchanges. Normal QSOs are difficult then, and inexperienced operators are easily overlooked."
+      },
+      "learnMore": {
+        "de": "Die WARC-Bänder (30m, 17m, 12m) sind contestfrei und bieten dann eine ruhige Alternative.",
+        "en": "The WARC bands (30m, 17m, 12m) are contest-free and offer a quiet alternative."
+      }
+    },
+    {
+      "id": "no_activity",
+      "category": "operator",
+      "name": {
+        "de": "Niemand auf dem Band aktiv",
+        "en": "No One Active on the Band"
+      },
+      "description": {
+        "de": "Zur Zeit ist einfach niemand auf dem Band, der antworten könnte.",
+        "en": "Currently there's simply no one on the band who could answer."
+      },
+      "explanation": {
+        "de": "Nicht immer ist die Physik schuld! Manchmal sind einfach keine anderen Funkamateure aktiv – wegen Tageszeit, Wochentag oder weil das Band als \"schlecht\" gilt und keiner nachschaut.",
+        "en": "Physics isn't always to blame! Sometimes there are simply no other hams active – due to time of day, day of week, or because the band is considered \"poor\" and no one checks."
+      },
+      "learnMore": {
+        "de": "Wochenenden und Abendstunden sind meist am aktivsten. Contests bringen viele Stationen auf die Bänder.",
+        "en": "Weekends and evening hours are usually most active. Contests bring many stations to the bands."
+      }
+    },
+    {
+      "id": "wrong_mode",
+      "category": "operator",
+      "name": {
+        "de": "Falsche Betriebsart",
+        "en": "Wrong Operating Mode"
+      },
+      "description": {
+        "de": "Du sendest in einer Betriebsart, die andere nicht dekodieren können.",
+        "en": "You're transmitting in a mode others cannot decode."
+      },
+      "explanation": {
+        "de": "Wenn du z.B. in SSB sendest, aber die andere Station erwartet CW (Morsen) oder einen Digitalmode wie FT8, können sie dich nicht verstehen – selbst wenn das Signal ankommt.",
+        "en": "If you transmit in SSB but the other station expects CW (Morse) or a digital mode like FT8, they cannot understand you – even if the signal arrives."
+      },
+      "learnMore": {
+        "de": "Achte auf die Bandpläne – verschiedene Frequenzbereiche sind für verschiedene Betriebsarten vorgesehen.",
+        "en": "Check the band plans – different frequency ranges are designated for different modes."
+      }
+    },
+    {
+      "id": "target_not_listening",
+      "category": "operator",
+      "name": {
+        "de": "Zielstation hört nicht",
+        "en": "Target Station Not Listening"
+      },
+      "description": {
+        "de": "Die Station, die du erreichen willst, ist nicht empfangsbereit.",
+        "en": "The station you want to reach is not receiving."
+      },
+      "explanation": {
+        "de": "Vielleicht ist die Zielstation gerade selbst am Senden, hat die Frequenz verlassen oder macht eine Pause. Beim Amateurfunk braucht es manchmal Geduld und mehrere Versuche.",
+        "en": "Perhaps the target station is currently transmitting, has left the frequency, or is taking a break. Amateur radio sometimes requires patience and multiple attempts."
+      },
+      "learnMore": {
+        "de": "Rufe mehrmals in Abständen von einigen Minuten – und höre dazwischen!",
+        "en": "Call multiple times at intervals of a few minutes – and listen in between!"
+      }
+    },
+    {
+      "id": "split_operation",
+      "category": "operator",
+      "name": {
+        "de": "Split-Betrieb nicht erkannt",
+        "en": "Split Operation Not Recognized"
+      },
+      "description": {
+        "de": "Die DX-Station hört auf einer anderen Frequenz als sie sendet.",
+        "en": "The DX station is listening on a different frequency than it transmits."
+      },
+      "explanation": {
+        "de": "Seltene DX-Stationen arbeiten oft im Split-Betrieb: Sie senden auf einer Frequenz, hören aber 5-10 kHz höher oder tiefer. Wenn du auf der Sendefrequenz rufst, hört dich die DX-Station nicht.",
+        "en": "Rare DX stations often operate split: They transmit on one frequency but listen 5-10 kHz higher or lower. If you call on their transmit frequency, the DX station won't hear you."
+      },
+      "learnMore": {
+        "de": "Höre genau zu! DX-Stationen sagen meist \"listening up\" oder \"up 5\" für Split-Betrieb.",
+        "en": "Listen carefully! DX stations usually say \"listening up\" or \"up 5\" for split operation."
+      }
+    },
+    {
+      "id": "pileup_timing",
+      "category": "operator",
+      "name": {
+        "de": "Falsches Timing im Pile-Up",
+        "en": "Wrong Timing in Pile-Up"
+      },
+      "description": {
+        "de": "Dein Ruf geht im Pile-Up unter, weil das Timing nicht stimmt.",
+        "en": "Your call gets lost in the pile-up because your timing is off."
+      },
+      "explanation": {
+        "de": "Bei begehrten DX-Stationen rufen viele gleichzeitig (Pile-Up). Wenn du zum falschen Zeitpunkt rufst – etwa während die DX-Station noch sendet – hört sie dich nicht. Geduld und gutes Timing sind entscheidend.",
+        "en": "With sought-after DX stations, many call simultaneously (pile-up). If you call at the wrong time – such as while the DX station is still transmitting – they won't hear you. Patience and good timing are crucial."
+      },
+      "learnMore": {
+        "de": "Höre erst einige QSOs zu, um den Rhythmus der DX-Station zu verstehen, bevor du rufst.",
+        "en": "Listen to a few QSOs first to understand the DX station's rhythm before calling."
+      }
+    },
+    {
+      "id": "wrong_sideband",
+      "category": "operator",
+      "name": {
+        "de": "Falsches Seitenband (USB/LSB)",
+        "en": "Wrong Sideband (USB/LSB)"
+      },
+      "description": {
+        "de": "Du sendest im falschen Seitenband für das Band.",
+        "en": "You're transmitting on the wrong sideband for the band."
+      },
+      "explanation": {
+        "de": "Konvention: Unter 10 MHz (40m, 80m, 160m) wird LSB verwendet, darüber (20m, 15m, 10m) USB. Wenn du im falschen Seitenband sendest, klingt deine Stimme für andere verzerrt und unverständlich.",
+        "en": "Convention: Below 10 MHz (40m, 80m, 160m) LSB is used, above that (20m, 15m, 10m) USB. If you transmit on the wrong sideband, your voice sounds distorted and unintelligible to others."
+      },
+      "learnMore": {
+        "de": "Merkhilfe: \"Unten LSB, oben USB\" – die Grenze liegt bei 10 MHz.",
+        "en": "Memory aid: \"Lower LSB, upper USB\" – the boundary is at 10 MHz."
+      }
+    }
+  ]
+}
