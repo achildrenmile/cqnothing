@@ -154,6 +154,94 @@
     "encourage.detective": {
       "de": "Du denkst wie ein echter Funk-Detektiv!",
       "en": "You're thinking like a real radio detective!"
+    },
+    "nav.imprint": {
+      "de": "Impressum",
+      "en": "Imprint"
+    },
+    "nav.privacy": {
+      "de": "Datenschutz",
+      "en": "Privacy"
+    },
+    "imprint.title": {
+      "de": "Impressum",
+      "en": "Imprint"
+    },
+    "imprint.legal": {
+      "de": "Angaben gemäß E-Commerce-Gesetz (ECG) § 5 und Mediengesetz (MedienG) § 25",
+      "en": "Information according to E-Commerce Law (ECG) § 5 and Media Law (MedienG) § 25"
+    },
+    "imprint.operator": {
+      "de": "Betreiber der Website",
+      "en": "Website Operator"
+    },
+    "imprint.contact": {
+      "de": "Kontakt",
+      "en": "Contact"
+    },
+    "imprint.liability.content": {
+      "de": "Haftung für Inhalte",
+      "en": "Liability for Content"
+    },
+    "imprint.liability.content.text": {
+      "de": "Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.",
+      "en": "The content of this website has been created with the greatest possible care. However, we cannot guarantee the accuracy, completeness, and timeliness of the content. As a service provider, we are responsible for our own content on these pages in accordance with general laws."
+    },
+    "imprint.liability.links": {
+      "de": "Haftung für Links",
+      "en": "Liability for Links"
+    },
+    "imprint.liability.links.text": {
+      "de": "Diese Website enthält möglicherweise Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.",
+      "en": "This website may contain links to external third-party websites over whose content we have no control. Therefore, we cannot assume any liability for these external contents. The respective provider or operator of the linked pages is always responsible for their content."
+    },
+    "imprint.copyright": {
+      "de": "Urheberrecht",
+      "en": "Copyright"
+    },
+    "imprint.copyright.text": {
+      "de": "Die durch den Betreiber dieser Website erstellten Inhalte und Werke unterliegen dem österreichischen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Erstellers.",
+      "en": "The content and works created by the operator of this website are subject to Austrian copyright law. Duplication, processing, distribution, and any form of exploitation beyond the limits of copyright require the written consent of the respective creator."
+    },
+    "imprint.odr": {
+      "de": "Online-Streitbeilegung",
+      "en": "Online Dispute Resolution"
+    },
+    "imprint.odr.text": {
+      "de": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr/ – Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+      "en": "The European Commission provides a platform for online dispute resolution (ODR): https://ec.europa.eu/consumers/odr/ – We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board."
+    },
+    "imprint.close": {
+      "de": "Schließen",
+      "en": "Close"
+    },
+    "privacy.title": {
+      "de": "Datenschutz",
+      "en": "Privacy"
+    },
+    "privacy.intro": {
+      "de": "Diese Website speichert keine personenbezogenen Daten. Es werden keine Cookies gesetzt, kein Tracking durchgeführt und keine Analyse-Tools verwendet.",
+      "en": "This website does not store any personal data. No cookies are set, no tracking is performed, and no analytics tools are used."
+    },
+    "privacy.cloudflare": {
+      "de": "Cloudflare",
+      "en": "Cloudflare"
+    },
+    "privacy.cloudflare.text": {
+      "de": "Diese Website nutzt Cloudflare für CDN und Sicherheit. Cloudflare kann technisch notwendige Daten wie IP-Adressen vorübergehend verarbeiten. Weitere Informationen: https://www.cloudflare.com/privacypolicy/",
+      "en": "This website uses Cloudflare for CDN and security. Cloudflare may temporarily process technically necessary data such as IP addresses. More information: https://www.cloudflare.com/privacypolicy/"
+    },
+    "privacy.localstorage": {
+      "de": "Lokale Speicherung",
+      "en": "Local Storage"
+    },
+    "privacy.localstorage.text": {
+      "de": "Die Spracheinstellung wird lokal in Ihrem Browser gespeichert (localStorage). Diese Information verlässt nie Ihren Browser.",
+      "en": "The language setting is stored locally in your browser (localStorage). This information never leaves your browser."
+    },
+    "privacy.contact": {
+      "de": "Für Datenschutzanfragen wenden Sie sich an den Betreiber (siehe Impressum).",
+      "en": "For privacy inquiries, please contact the operator (see Imprint)."
     }
   }
 }

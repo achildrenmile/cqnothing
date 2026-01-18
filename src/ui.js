@@ -47,8 +47,16 @@ export function init() {
         unlikelySection: document.getElementById('unlikely-section'),
         missedSection: document.getElementById('missed-section'),
         ahaSection: document.getElementById('aha-section'),
-        footerTagline: document.getElementById('footer-tagline')
+        footerTagline: document.getElementById('footer-tagline'),
+        // Footer and modal elements
+        linkImprint: document.getElementById('link-imprint'),
+        linkPrivacy: document.getElementById('link-privacy'),
+        imprintModal: document.getElementById('imprint-modal'),
+        privacyModal: document.getElementById('privacy-modal')
     };
+
+    // Setup modal event listeners
+    setupModals();
 }
 
 /**
@@ -276,6 +284,131 @@ export function updateLanguage() {
     if (elements.btnPrevious) elements.btnPrevious.textContent = i18n.t('btn.previous');
     if (elements.btnNext) elements.btnNext.textContent = i18n.t('btn.next');
     if (elements.footerTagline) elements.footerTagline.textContent = i18n.t('footer.tagline');
+
+    // Footer links
+    if (elements.linkImprint) elements.linkImprint.textContent = i18n.t('nav.imprint');
+    if (elements.linkPrivacy) elements.linkPrivacy.textContent = i18n.t('nav.privacy');
+
+    // Update modal text
+    updateModalText(lang);
+}
+
+/**
+ * Update modal text for current language
+ */
+function updateModalText(lang) {
+    // Imprint modal
+    const imprintTitle = document.getElementById('imprint-modal-title');
+    const imprintLegalTitle = document.getElementById('imprint-legal-title');
+    const imprintOperatorTitle = document.getElementById('imprint-operator-title');
+    const imprintContactTitle = document.getElementById('imprint-contact-title');
+    const imprintLiabilityTitle = document.getElementById('imprint-liability-title');
+    const imprintLiabilityText = document.getElementById('imprint-liability-text');
+    const imprintLinksTitle = document.getElementById('imprint-links-title');
+    const imprintLinksText = document.getElementById('imprint-links-text');
+    const imprintCopyrightTitle = document.getElementById('imprint-copyright-title');
+    const imprintCopyrightText = document.getElementById('imprint-copyright-text');
+    const imprintOdrTitle = document.getElementById('imprint-odr-title');
+    const imprintOdrText = document.getElementById('imprint-odr-text');
+    const imprintCloseBtn = document.getElementById('imprint-close-btn');
+
+    if (imprintTitle) imprintTitle.textContent = i18n.t('imprint.title');
+    if (imprintLegalTitle) imprintLegalTitle.textContent = i18n.t('imprint.legal');
+    if (imprintOperatorTitle) imprintOperatorTitle.textContent = i18n.t('imprint.operator');
+    if (imprintContactTitle) imprintContactTitle.textContent = i18n.t('imprint.contact');
+    if (imprintLiabilityTitle) imprintLiabilityTitle.textContent = i18n.t('imprint.liability.content');
+    if (imprintLiabilityText) imprintLiabilityText.textContent = i18n.t('imprint.liability.content.text');
+    if (imprintLinksTitle) imprintLinksTitle.textContent = i18n.t('imprint.liability.links');
+    if (imprintLinksText) imprintLinksText.textContent = i18n.t('imprint.liability.links.text');
+    if (imprintCopyrightTitle) imprintCopyrightTitle.textContent = i18n.t('imprint.copyright');
+    if (imprintCopyrightText) imprintCopyrightText.textContent = i18n.t('imprint.copyright.text');
+    if (imprintOdrTitle) imprintOdrTitle.textContent = i18n.t('imprint.odr');
+    if (imprintCloseBtn) imprintCloseBtn.textContent = i18n.t('imprint.close');
+
+    // Privacy modal
+    const privacyTitle = document.getElementById('privacy-modal-title');
+    const privacyIntro = document.getElementById('privacy-intro');
+    const privacyCloudflareTitle = document.getElementById('privacy-cloudflare-title');
+    const privacyLocalstorageTitle = document.getElementById('privacy-localstorage-title');
+    const privacyLocalstorageText = document.getElementById('privacy-localstorage-text');
+    const privacyContact = document.getElementById('privacy-contact');
+    const privacyCloseBtn = document.getElementById('privacy-close-btn');
+
+    if (privacyTitle) privacyTitle.textContent = i18n.t('privacy.title');
+    if (privacyIntro) privacyIntro.textContent = i18n.t('privacy.intro');
+    if (privacyCloudflareTitle) privacyCloudflareTitle.textContent = i18n.t('privacy.cloudflare');
+    if (privacyLocalstorageTitle) privacyLocalstorageTitle.textContent = i18n.t('privacy.localstorage');
+    if (privacyLocalstorageText) privacyLocalstorageText.textContent = i18n.t('privacy.localstorage.text');
+    if (privacyContact) privacyContact.textContent = i18n.t('privacy.contact');
+    if (privacyCloseBtn) privacyCloseBtn.textContent = i18n.t('imprint.close');
+
+    // Update modal close button aria-labels
+    document.querySelectorAll('.modal-close').forEach(btn => {
+        btn.setAttribute('aria-label', i18n.t('imprint.close'));
+    });
+}
+
+/**
+ * Setup modal event listeners
+ */
+function setupModals() {
+    // Open imprint modal
+    if (elements.linkImprint) {
+        elements.linkImprint.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(elements.imprintModal);
+        });
+    }
+
+    // Open privacy modal
+    if (elements.linkPrivacy) {
+        elements.linkPrivacy.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(elements.privacyModal);
+        });
+    }
+
+    // Close modal on close button click
+    document.querySelectorAll('.modal-close, .modal-close-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            closeAllModals();
+        });
+    });
+
+    // Close modal on backdrop click
+    document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+        backdrop.addEventListener('click', () => {
+            closeAllModals();
+        });
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeAllModals();
+        }
+    });
+}
+
+/**
+ * Open a modal
+ */
+function openModal(modal) {
+    if (!modal) return;
+    modal.classList.add('visible');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+/**
+ * Close all modals
+ */
+function closeAllModals() {
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.classList.remove('visible');
+        modal.setAttribute('aria-hidden', 'true');
+    });
+    document.body.style.overflow = '';
 }
 
 /**

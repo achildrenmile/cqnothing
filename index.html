@@ -156,7 +156,69 @@
             CQ… Nothing. –
             <span id="footer-tagline">Ein Lernwerkzeug für Amateurfunk-Einsteiger</span>
         </p>
+        <p class="footer-links">
+            <a href="#" id="link-imprint" class="footer-link">Impressum</a> |
+            <a href="#" id="link-privacy" class="footer-link">Datenschutz</a> |
+            Betreiber: OE8YML
+        </p>
     </footer>
+
+    <!-- Imprint Modal -->
+    <div id="imprint-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="imprint-modal-title">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" type="button" aria-label="Schließen">&times;</button>
+            <h2 id="imprint-modal-title" class="modal-title">Impressum</h2>
+            <div class="modal-body">
+                <h3 id="imprint-legal-title">Angaben gemäß E-Commerce-Gesetz (ECG) § 5 und Mediengesetz (MedienG) § 25</h3>
+
+                <h4 id="imprint-operator-title">Betreiber der Website</h4>
+                <address>
+                    Michael Linder<br>
+                    Rufzeichen: OE8YML<br>
+                    Nötsch 219, 9611 Nötsch<br>
+                    Österreich
+                </address>
+
+                <h4 id="imprint-contact-title">Kontakt</h4>
+                <p>E-Mail: <a href="mailto:oe8yml@rednil.at">oe8yml@rednil.at</a></p>
+
+                <h4 id="imprint-liability-title">Haftung für Inhalte</h4>
+                <p id="imprint-liability-text">Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
+
+                <h4 id="imprint-links-title">Haftung für Links</h4>
+                <p id="imprint-links-text">Diese Website enthält möglicherweise Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+
+                <h4 id="imprint-copyright-title">Urheberrecht</h4>
+                <p id="imprint-copyright-text">Die durch den Betreiber dieser Website erstellten Inhalte und Werke unterliegen dem österreichischen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Erstellers.</p>
+
+                <h4 id="imprint-odr-title">Online-Streitbeilegung</h4>
+                <p id="imprint-odr-text">Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a> – Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+            </div>
+            <button id="imprint-close-btn" class="btn btn-secondary modal-close-btn" type="button">Schließen</button>
+        </div>
+    </div>
+
+    <!-- Privacy Modal -->
+    <div id="privacy-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="privacy-modal-title">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" type="button" aria-label="Schließen">&times;</button>
+            <h2 id="privacy-modal-title" class="modal-title">Datenschutz</h2>
+            <div class="modal-body">
+                <p id="privacy-intro">Diese Website speichert keine personenbezogenen Daten. Es werden keine Cookies gesetzt, kein Tracking durchgeführt und keine Analyse-Tools verwendet.</p>
+
+                <h4 id="privacy-cloudflare-title">Cloudflare</h4>
+                <p id="privacy-cloudflare-text">Diese Website nutzt Cloudflare für CDN und Sicherheit. Cloudflare kann technisch notwendige Daten wie IP-Adressen vorübergehend verarbeiten. Weitere Informationen: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">https://www.cloudflare.com/privacypolicy/</a></p>
+
+                <h4 id="privacy-localstorage-title">Lokale Speicherung</h4>
+                <p id="privacy-localstorage-text">Die Spracheinstellung wird lokal in Ihrem Browser gespeichert (localStorage). Diese Information verlässt nie Ihren Browser.</p>
+
+                <p id="privacy-contact">Für Datenschutzanfragen wenden Sie sich an den Betreiber (siehe Impressum).</p>
+            </div>
+            <button id="privacy-close-btn" class="btn btn-secondary modal-close-btn" type="button">Schließen</button>
+        </div>
+    </div>
 
     <!-- Bundled JavaScript entry point -->
     <script type="module" src="/src/main.js"></script>
