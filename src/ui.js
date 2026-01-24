@@ -7,6 +7,7 @@
 import * as i18n from './i18n.js';
 import * as scenarios from './scenarios.js';
 import * as causes from './causes.js';
+import * as config from './config.js';
 
 // DOM element references
 let elements = {};
@@ -52,7 +53,17 @@ export function init() {
         linkImprint: document.getElementById('link-imprint'),
         linkPrivacy: document.getElementById('link-privacy'),
         imprintModal: document.getElementById('imprint-modal'),
-        privacyModal: document.getElementById('privacy-modal')
+        privacyModal: document.getElementById('privacy-modal'),
+        // Parent site branding elements
+        parentLogoLink: document.getElementById('parent-logo-link'),
+        parentLogo: document.getElementById('parent-logo'),
+        parentSiteInfo: document.getElementById('parent-site-info'),
+        parentSiteLink: document.getElementById('parent-site-link'),
+        parentSiteName: document.getElementById('parent-site-name'),
+        parentSiteTextDe: document.getElementById('parent-site-text-de'),
+        parentSiteTextEn: document.getElementById('parent-site-text-en'),
+        parentSiteSuffixDe: document.getElementById('parent-site-suffix-de'),
+        parentSiteSuffixEn: document.getElementById('parent-site-suffix-en')
     };
 
     // Setup modal event listeners
@@ -289,8 +300,60 @@ export function updateLanguage() {
     if (elements.linkImprint) elements.linkImprint.textContent = i18n.t('nav.imprint');
     if (elements.linkPrivacy) elements.linkPrivacy.textContent = i18n.t('nav.privacy');
 
+    // Update parent site text for current language
+    updateParentSiteLanguage(lang);
+
     // Update modal text
     updateModalText(lang);
+}
+
+/**
+ * Apply parent site branding from config
+ */
+export function applyParentSiteBranding() {
+    const parentUrl = config.getConfig('parentSiteUrl');
+    const parentLogo = config.getConfig('parentSiteLogo');
+    const parentName = config.getConfig('parentSiteName');
+
+    // Apply header logo if configured
+    if (parentLogo && elements.parentLogoLink && elements.parentLogo) {
+        elements.parentLogo.src = parentLogo;
+        elements.parentLogo.alt = parentName || 'Parent Site';
+        elements.parentLogoLink.href = parentUrl || '#';
+        elements.parentLogoLink.classList.remove('hidden');
+    }
+
+    // Apply footer parent site info if configured
+    if (parentUrl && parentName && elements.parentSiteInfo) {
+        elements.parentSiteLink.href = parentUrl;
+        elements.parentSiteName.textContent = parentName;
+        elements.parentSiteInfo.classList.remove('hidden');
+    }
+}
+
+/**
+ * Update parent site text for current language
+ */
+function updateParentSiteLanguage(lang) {
+    if (!elements.parentSiteInfo || elements.parentSiteInfo.classList.contains('hidden')) {
+        return;
+    }
+
+    // Toggle visibility of DE/EN text elements
+    const isGerman = lang === 'de';
+
+    if (elements.parentSiteTextDe) {
+        elements.parentSiteTextDe.classList.toggle('hidden', !isGerman);
+    }
+    if (elements.parentSiteTextEn) {
+        elements.parentSiteTextEn.classList.toggle('hidden', isGerman);
+    }
+    if (elements.parentSiteSuffixDe) {
+        elements.parentSiteSuffixDe.classList.toggle('hidden', !isGerman);
+    }
+    if (elements.parentSiteSuffixEn) {
+        elements.parentSiteSuffixEn.classList.toggle('hidden', isGerman);
+    }
 }
 
 /**

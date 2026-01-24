@@ -14,6 +14,10 @@
     <!-- Header with title and language toggle -->
     <header class="app-header">
         <div class="header-content">
+            <!-- Parent site logo (configured via config.json) -->
+            <a id="parent-logo-link" class="parent-logo-link hidden" href="#" target="_blank" rel="noopener">
+                <img id="parent-logo" class="parent-logo" src="" alt="">
+            </a>
             <div class="title-block">
                 <h1 class="app-title">CQ… Nothing.</h1>
                 <p class="app-subtitle">
@@ -152,6 +156,15 @@
 
     <!-- Footer -->
     <footer class="app-footer">
+        <p id="parent-site-info" class="parent-site-info hidden">
+            <span id="parent-site-text-de">Teil der</span>
+            <span id="parent-site-text-en" class="hidden">Part of</span>
+            <a id="parent-site-link" href="#" target="_blank" rel="noopener">
+                <span id="parent-site-name"></span>
+            </a>
+            <span id="parent-site-suffix-de">Tools</span>
+            <span id="parent-site-suffix-en" class="hidden">Tools</span>
+        </p>
         <p>
             CQ… Nothing. –
             <span id="footer-tagline">Ein Lernwerkzeug für Amateurfunk-Einsteiger</span>

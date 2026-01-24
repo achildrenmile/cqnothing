@@ -11,6 +11,7 @@ import * as causes from './causes.js';
 import * as scenarios from './scenarios.js';
 import * as evaluator from './evaluator.js';
 import * as ui from './ui.js';
+import * as config from './config.js';
 
 // Application state
 const state = {
@@ -22,8 +23,14 @@ const state = {
 /**
  * Initialize the application
  */
-function init() {
+async function init() {
+    // Load runtime config first
+    await config.loadConfig();
+
     ui.init();
+
+    // Apply parent site branding
+    ui.applyParentSiteBranding();
 
     i18n.onLanguageChange(handleLanguageChange);
 

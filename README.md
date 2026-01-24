@@ -69,12 +69,15 @@ npm run preview
 
 ```
 cqnothing/
+├── public/
+│   └── config.json          # Runtime-Konfiguration (Parent Site Branding)
 ├── src/
 │   ├── data/
 │   │   ├── causes.json      # 23 Ursachen mit DE/EN Texten
 │   │   ├── scenarios.json   # 16 Szenarien mit Mappings
 │   │   └── strings.json     # UI-Übersetzungen
 │   ├── causes.js            # Ursachen-Modul
+│   ├── config.js            # Runtime-Config Loader
 │   ├── evaluator.js         # Auswertungslogik
 │   ├── i18n.js              # Internationalisierung
 │   ├── main.js              # Einstiegspunkt
@@ -85,6 +88,7 @@ cqnothing/
 ├── package.json
 ├── vite.config.js
 ├── Dockerfile               # Multi-stage Docker Build
+├── docker-entrypoint.sh     # Container Entrypoint (Config Generation)
 ├── nginx.conf               # nginx Konfiguration
 └── deploy-production.sh     # Deployment Script
 ```
@@ -123,6 +127,25 @@ Neue Szenarien werden in `src/data/scenarios.json` hinzugefügt:
 docker build -t cqnothing .
 docker run -d -p 3010:80 cqnothing
 ```
+
+### Mit Parent Site Branding
+
+Das Tool kann für verschiedene Parent Sites konfiguriert werden, ohne neu gebaut zu werden:
+
+```bash
+docker run -d -p 3010:80 \
+  -e PARENT_SITE_URL="https://oeradio.at" \
+  -e PARENT_SITE_LOGO="https://oeradio.at/logo.png" \
+  -e PARENT_SITE_NAME="OERadio" \
+  cqnothing
+```
+
+**Umgebungsvariablen:**
+- `PARENT_SITE_URL` – Link-Ziel für Logo und Footer
+- `PARENT_SITE_LOGO` – URL zum Logo-Bild (optional, wenn leer wird kein Logo angezeigt)
+- `PARENT_SITE_NAME` – Anzeigename im Footer ("Teil der {Name} Tools")
+
+Die Konfiguration kann auch direkt in `public/config.json` geändert werden.
 
 ### Auf Synology NAS
 

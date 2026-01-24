@@ -152,6 +152,11 @@ body {
     outline-offset: 2px;
 }
 
+/* Utility: Hidden */
+.hidden {
+    display: none !important;
+}
+
 /* ═══════════════════════════════════════════════════════════
    HEADER
    ═══════════════════════════════════════════════════════════ */
@@ -205,6 +210,29 @@ body {
 .language-toggle:hover {
     background: rgba(255, 255, 255, 0.25);
     border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Parent site logo */
+.parent-logo-link {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.parent-logo-link.hidden {
+    display: none;
+}
+
+.parent-logo {
+    height: 60px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    transition: opacity var(--transition-fast);
+}
+
+.parent-logo:hover {
+    opacity: 0.85;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -716,6 +744,26 @@ body {
     text-decoration: underline;
 }
 
+/* Parent site info */
+.parent-site-info {
+    margin-bottom: var(--space-sm) !important;
+    font-weight: 500;
+}
+
+.parent-site-info.hidden {
+    display: none;
+}
+
+.parent-site-info a {
+    color: var(--color-primary-lighter);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.parent-site-info a:hover {
+    text-decoration: underline;
+}
+
 /* ═══════════════════════════════════════════════════════════
    MODAL
    ═══════════════════════════════════════════════════════════ */
@@ -875,6 +923,15 @@ body {
 
     .app-subtitle {
         font-size: var(--font-size-sm);
+    }
+
+    .parent-logo {
+        height: 40px;
+        max-width: 100px;
+    }
+
+    .header-content {
+        flex-wrap: wrap;
     }
 
     .scenario-nav {
