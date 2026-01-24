@@ -224,9 +224,9 @@ body {
 }
 
 .parent-logo {
-    height: 60px;
+    height: 150px;
     width: auto;
-    max-width: 150px;
+    max-width: 300px;
     object-fit: contain;
     transition: opacity var(--transition-fast);
 }
@@ -926,8 +926,8 @@ body {
     }
 
     .parent-logo {
-        height: 40px;
-        max-width: 100px;
+        height: 80px;
+        max-width: 160px;
     }
 
     .header-content {
