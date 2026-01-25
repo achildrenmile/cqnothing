@@ -63,11 +63,16 @@ export function init() {
         parentSiteTextDe: document.getElementById('parent-site-text-de'),
         parentSiteTextEn: document.getElementById('parent-site-text-en'),
         parentSiteSuffixDe: document.getElementById('parent-site-suffix-de'),
-        parentSiteSuffixEn: document.getElementById('parent-site-suffix-en')
+        parentSiteSuffixEn: document.getElementById('parent-site-suffix-en'),
+        // Theme toggle
+        btnTheme: document.getElementById('btn-theme')
     };
 
     // Setup modal event listeners
     setupModals();
+
+    // Initialize theme
+    initTheme();
 }
 
 /**
@@ -506,4 +511,40 @@ export function setupEventListeners(handlers) {
     if (handlers.onLanguageToggle && elements.btnLanguage) {
         elements.btnLanguage.addEventListener('click', handlers.onLanguageToggle);
     }
+    // Theme toggle - internal handler
+    if (elements.btnTheme) {
+        elements.btnTheme.addEventListener('click', toggleTheme);
+    }
+}
+
+/**
+ * Initialize theme from localStorage or system preference
+ */
+function initTheme() {
+    const savedTheme = localStorage.getItem('cqnothing-theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+    // If no saved preference, let CSS handle system preference
+}
+
+/**
+ * Toggle between light and dark theme
+ */
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    let newTheme;
+    if (currentTheme === 'dark') {
+        newTheme = 'light';
+    } else if (currentTheme === 'light') {
+        newTheme = 'dark';
+    } else {
+        // No explicit theme set, toggle from system preference
+        newTheme = prefersDark ? 'light' : 'dark';
+    }
+
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('cqnothing-theme', newTheme);
 }
