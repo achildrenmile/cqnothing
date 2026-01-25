@@ -132,10 +132,12 @@
 /* Dark mode header adjustments */
 [data-theme="dark"] .app-header {
     background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    color: #f7fafc;
 }
 
 [data-theme="dark"] .scenario-header {
     background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    color: #f7fafc;
 }
 
 /* Dark mode aha section */
@@ -204,10 +206,12 @@
 
     :root:not([data-theme="light"]) .app-header {
         background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+        color: #f7fafc;
     }
 
     :root:not([data-theme="light"]) .scenario-header {
         background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+        color: #f7fafc;
     }
 
     :root:not([data-theme="light"]) .aha-section {
